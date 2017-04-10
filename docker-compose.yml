@@ -1,0 +1,25 @@
+version: "2"
+
+services:
+    nylas-api:
+        build: .
+        command: inbox-api
+        ports:
+        - 5556:5556
+
+    nylas-sync:
+        build: .
+        command: inbox-start
+        ports:
+        - 16384:16384
+
+    mysql:
+        image: mysql:5.6
+        environment:
+        - MYSQL_ROOT_PASSWORD=nylas
+        - MYSQL_USER=nylas
+        - MYSQL_PASSWORD=nylas
+        - MYSQL_DATABASE=inbox
+
+    redis:
+        image: redis:3-alpine
