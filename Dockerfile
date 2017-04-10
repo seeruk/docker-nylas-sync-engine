@@ -14,6 +14,7 @@ RUN set -x \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
+        gettext-base \
         git-core \
         libssl-dev \
         sudo \
